@@ -1,0 +1,165 @@
+//////////////////////////////////////////////
+RESTful API Note
+
+
+Step 1: Create a new API
+	Title: OpenAPI Specification for CMS
+	Description: API Specification document of the CMS system
+	Contact: -
+	Version: -
+
+Step 2: Identify the Type of API
+	public/private/partner
+
+Step 3: Identify the Server Base URL
+
+Step 4: Identify the Resources
+
+Step 5: Have the Resources as plural
+
+Step 6: Define the Resource Models
+
+Step 7: Select the Identifier for Each Resource
+
+Step 8: Identify the Association for Each Resource
+
+Step 9: Check for the URL Complexity
+
+Step 10: Identify the Operations for Each Resource
+
+Step 11: Identify the Parameters Required for the Operations
+	 Query Parameters/Path Parameters/Headers/Cookies
+
+Step 12: Identify the content Type of Rwequest for the Operation
+
+Step 13: Identify the request Body for the Operation
+
+Step 14: Identify the Http Status Codes for the Operation
+
+Step 15: Identify the content Type of Response for the operation
+
+Step 16: Identify the Response Body for the operation
+
+Step 17: Handle Errors for the Operation
+
+Step 18: Identify the need for Filtering and Add If Needed
+
+STEP 19: Identify the Need for Pagination and Add If Needed
+
+Step 20: Identify the Need for Sorting and Add If Needed
+
+Step 21: Identify the API Versioning Scheme and Set the API Version
+
+
+
+GET: 
+	Request for all Students. :: 1 argument
+
+POST: 
+	Request for Posting/Creating/Inserting Data => On successful creation, return HTTP status 201 :: post requires at least 2 arguments
+
+PUT: 
+	Used to update all the details present in resource - update an existing resource (Request for Updating Data at id=1)
+
+PATCH: 
+	Partial update of an existing resource
+
+DELETE: 
+	Request for Deleting Data of id=1(Removes an existing resource)
+
+
+"idempotent" means to the property of an operation where performing the operation multiple times has the same effect as performing it once.
+
+Operations = Methods = Verbs
+
+
+Request Components: 
+
+1) Methods : 	GET => Status code: 200,404
+		POST => Status code: 201,400
+		PUT => Status code: 200,201,204
+		DELETE => Status code: 204,404
+
+2) URL: Uniquely identify resource
+
+3) Headers: Meta data of request
+
+4) Content: 	Query Parameters
+		Body
+
+
+Response Components:
+
+1) Status Code : 	Success 2xx
+			Client-side error 4xx
+			Server-side error 5xx
+
+
+2) Headers: Meta data of response
+
+4) Content: Response Body
+
+
+Types of Request Parameters:
+
+1) Query Parameters
+2) Path Parameters
+3) Headers
+4) Cookies
+
+
+Status Codes: 1xx 2xx 4xx 5xx
+
+2xx =>
+		200: OK (no new resource)
+		201: created (new resource is created)
+		204: No content (No Result Exists)
+
+4xx =>
+		400: Bad Request (Invalid Input)
+		401: Unauthorized
+		403: Forbidden
+		404: Not Found
+		405: Method Not Allowed
+
+5xx => 
+		500: Internal Server Error
+		501: Not Implemented
+
+
+Choosing the format of Responses: Format of the data 
+	=> Most popular format used in RESTful APIs : application/json
+
+
+Types of Error:
+
+1) Client-side Errors :
+   
+   -Invalid credentials
+   -Incorrect Parameters
+   -Invalid IDs
+
+2) Server-side Errors:
+
+   -Exceptions
+
+
+Versioning APIs: 5 Ways of it.
+
+1)Approach 1: No versioning
+
+2)Approach 2: URL Versioning => Most Ideal Approach : how we can use the versioning information within
+
+the URL or the path of the API.In this case, it becomes easier for the client to pass the versioning information.
+
+3)Approach 3: Query String Versioning => Most Ideal Approach : how to use a query string parameter to pass the versioning information for
+
+your API.
+
+4)Approach 4: Header Versioning : we define a custom header to specify the version of the
+
+API. We can use header such as x API version to denote the version that you need to target to.
+
+5)Approach 5: Media Type Versioning => Most complex : In this case we are going to use the content type and we are going to pass the version information as
+
+part of this content type value. : However, they are considered as the most ideal implementation of API versioning.
